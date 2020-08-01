@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { SafeAreaView, StyleSheet, StatusBar, FlatList, View, TextInput } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar, FlatList, View, TextInput, Image } from 'react-native';
 
 import AddButton from '../../components/AddButton/AddButton'
 import Todo from '../../components/Todo/Todo'
@@ -9,6 +9,7 @@ const Home = () => {
     const [text, setText] = useState('')
     const [completed, setCompleted] = useState(false)
     const [id, setId] = useState(0)
+    const imageUri = require('../../../assets/empty.png')
 
     const newTodo = () => {
         if(text === ''){
@@ -40,12 +41,14 @@ const Home = () => {
             <TextInput style={styles.addTodoInput} clearButtonMode="always" placeholder="O que fazer ?" onChangeText={text => setText(text)}/>
             <AddButton newTodo={newTodo}/>
         </View>
-        <FlatList
+        {todos.length === 0 
+        ? <Image style={styles.emptyImage} 
+        source={imageUri}/> 
+        : <FlatList
         data={todos}
         keyExtractor={todo => todo.id}
         renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-        />
+        showsVerticalScrollIndicator={false}/>}
     </SafeAreaView>
   );
 }
@@ -77,6 +80,11 @@ const styles = StyleSheet.create({
         width:300,
         fontSize:16,
     },
+    emptyImage:{
+        width:300,
+        height:300,
+        marginVertical:100,
+    }
 })
 
 export default Home;

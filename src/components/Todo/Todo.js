@@ -6,7 +6,7 @@ const Todo = ({title, deleteTodo}) => {
   return (
     <View style={styles.todoContainer}>
         <View style={styles.todoContent}>
-            <TouchableOpacity style={styles.todoButton} onPress={deleteTodo}>
+            <TouchableOpacity style={{padding:6,}} onPress={deleteTodo}>
                 <MaterialCommunityIcons name="close" size={24} color="#7159f9" />
             </TouchableOpacity>
             <Text style={styles.todoText}>{title}</Text>
