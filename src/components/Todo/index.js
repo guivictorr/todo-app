@@ -1,8 +1,8 @@
-import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React from 'react';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import styles from "./styles";
+import styles from './styles';
 
 const Todo = ({ title, deleteTodo, id }) => {
   return (

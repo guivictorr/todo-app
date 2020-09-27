@@ -1,7 +1,7 @@
-import React from "react";
-import { TouchableOpacity, Text } from "react-native";
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
 
-import styles from "./styles";
+import styles from './styles';
 
 const AddButton = ({ newTodo }) => {
   return (

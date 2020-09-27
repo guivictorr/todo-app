@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { FlatList, View, TextInput, Image } from "react-native";
+import React, { useState } from 'react';
+import { FlatList, View, TextInput, Image } from 'react-native';
 
-import AddButton from "../../components/AddButton";
-import Todo from "../../components/Todo";
+import AddButton from '../../components/AddButton';
+import Todo from '../../components/Todo';
 
-import styles from "./styles";
+import styles from './styles';
 
-import imageUri from "../../../assets/empty.png";
+import imageUri from '../../../assets/empty.png';
 
 const Home = () => {
   const [todos, setTodo] = useState([]);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const newTodo = () => {
     if (!text) {
-      alert("Você precisa digitar algo");
+      alert('Você precisa digitar algo');
       return;
     }
 
@@ -25,11 +25,11 @@ const Home = () => {
     };
 
     setTodo([...todos, todo]);
-    setText("");
+    setText('');
   };
 
-  const deleteTodo = (id) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
+  const deleteTodo = id => {
+    const todoIndex = todos.findIndex(todo => todo.id === id);
     todos.splice(todoIndex, 1);
 
     setTodo([...todos]);
@@ -46,7 +46,7 @@ const Home = () => {
           style={styles.addTodoInput}
           placeholder="O que fazer ?"
           value={text}
-          onChangeText={(text) => setText(text)}
+          onChangeText={value => setText(value)}
         />
         <AddButton newTodo={newTodo} />
       </View>
@@ -55,7 +55,7 @@ const Home = () => {
       ) : (
         <FlatList
           data={todos}
-          keyExtractor={(todo) => todo.id}
+          keyExtractor={todo => todo.id}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
         />

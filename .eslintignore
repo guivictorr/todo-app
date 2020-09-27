@@ -1,0 +1,5 @@
+node_modules
+yarn.lock
+.expo
+.expo-shared
+babel.config.js
