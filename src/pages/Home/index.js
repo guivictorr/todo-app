@@ -50,16 +50,15 @@ const Home = () => {
         />
         <AddButton newTodo={newTodo} />
       </View>
-      {todos.length === 0 ? (
-        <Image style={styles.emptyImage} source={imageUri} />
-      ) : (
-        <FlatList
-          data={todos}
-          keyExtractor={todo => todo.id}
-          renderItem={renderItem}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
+      <FlatList
+        data={todos}
+        keyExtractor={todo => todo.id}
+        renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={
+          <Image style={styles.emptyImage} source={imageUri} />
+        }
+      />
     </View>
   );
 };
